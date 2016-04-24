@@ -1,0 +1,24 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+one:
+  uuid: "1"
+  title: "Product One"
+  summary: "This is just a summary"
+  description: "This is more detailed information about our product One"
+  sale_price: 999
+  base_shipping: 200
+  add_on_shipping: 100
+
+two:
+  uuid: "2"
+  title: "Product Two"
+  summary: "This is a summary for product #2"
+  description: "More detailed information about product number two."
+  orig_price: 999
+  sale_price: 899
+  base_shipping: 500
+  add_on_shipping: 300
+

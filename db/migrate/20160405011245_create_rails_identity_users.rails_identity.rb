@@ -1,0 +1,14 @@
+# This migration comes from rails_identity (originally 20160323210013)
+class CreateRailsIdentityUsers < ActiveRecord::Migration
+  def change
+    create_table :rails_identity_users do |t|
+      t.string :uuid, primary_key: true, null: false
+      t.string :username
+      t.string :password_digest
+      t.integer :role
+      t.string :metadata
+      t.datetime :deleted_at, index: true
+      t.timestamps null: false
+    end
+  end
+end
