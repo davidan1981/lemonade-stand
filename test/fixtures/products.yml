@@ -22,3 +22,12 @@ two:
   base_shipping: 500
   add_on_shipping: 300
 
+three:
+  uuid: "3"
+  title: "Product Three"
+  summary: "Yet another product...and it's #3"
+  description: "This is more detailed information about product number three."
+  orig_price: 1999
+  sale_price: 1899
+  base_shipping: 500
+  add_on_shipping: 400

@@ -6,23 +6,22 @@ class Order < ActiveRecord::Base
   has_many :items, foreign_key: "order_uuid", primary_key: "uuid"
 
   validates :user, presence: true
-  before_save :unlink_items_from_cart
 
   ##
-  # Creates an order by importing items from a cart. This DOES NOT remove
-  # items from the cart, which should be done once the order is confirmed.
-  def self.from_cart(cart)
-    return Order.new(user: cart.user, items: cart.items)
-  end
-
-  ##
-  # Unlink items from cart if they still reference it.
+  # Creates an order by importing items from a cart. Also, move each item
+  # out of the cart.
   #
-  def unlink_items_from_cart
-    items.each do |item|
+  def self.from_cart(cart)
+    order = Order.new(user: cart.user)
+    order.save
+    cart.items.each do |item|
       item.cart = nil
+      item.order = order
       item.save
     end
+    cart.items.clear
+    cart.save
+    return order
   end
 
 end

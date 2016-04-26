@@ -24,9 +24,9 @@ class ProductsControllerTest < ActionController::TestCase
     assert_equal all_products.length, assigns(:products).length
   end
 
-  test "cannot list products without token" do
+  test "public can list products" do
     get :index
-    assert_response 401
+    assert_response 200
   end
 
   test "user can show product" do
@@ -34,9 +34,9 @@ class ProductsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "public cannot show product" do
+  test "public can show product" do
     get :show, id: 1
-    assert_response 401
+    assert_response 200
   end
 
   test "admin can create a product" do

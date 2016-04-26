@@ -12,7 +12,9 @@ class Product < ActiveRecord::Base
   validates :base_shipping, presence: true, numericality: { greater_than_or_equal_to: 0.0 }
   validates :add_on_shipping, presence: true, numericality: { greater_than_or_equal_to: 0.0 }
 
+  ##
   # Calculates the average score from the reviews.
+  #
   def avg_score
     if reviews.length == 0
       return nil

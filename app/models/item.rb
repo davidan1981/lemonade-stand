@@ -13,6 +13,7 @@ class Item < ActiveRecord::Base
   }
   validate :must_belong_to_either_cart_or_order
 
+  ##
   # Custom validation method to ensure an item _always_ belongs to a cart or
   # an order (but not both).
   def must_belong_to_either_cart_or_order
@@ -23,6 +24,7 @@ class Item < ActiveRecord::Base
     end
   end
 
+  ##
   # Calculates the line item subtotal price, which is the sale price
   # multiplied by the quantity.
   def subtotal

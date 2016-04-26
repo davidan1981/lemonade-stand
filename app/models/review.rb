@@ -15,9 +15,11 @@ class Review < ActiveRecord::Base
   validates :feedback, presence: true, length: { minimum: 20 }
   validate :must_not_be_a_duplicate_review
 
+  ##
   # A user cannot leave more than one review per product.
+  #
   def must_not_be_a_duplicate_review
-    dup_reviews = Review.where(user_uuid: user, product: product)
+    dup_reviews = Review.where(user: user, product: product)
     if new_record?
       if dup_reviews.length > 0
         errors.add(:product, "already has a review from this user.")
