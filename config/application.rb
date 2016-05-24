@@ -21,6 +21,9 @@ module LemonadeStand
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.middleware.delete ActionDispatch::Cookies
+    config.middleware.delete ActionDispatch::Session::CookieStore
+    config.middleware.delete ActionDispatch::Flash
     config.middleware.insert_after(ActionDispatch::RequestId, Repia::HttpMethodNotAllowed)
     config.exceptions_app = lambda { |env| ApplicationController.action(:exceptions_app).call(env) }
 

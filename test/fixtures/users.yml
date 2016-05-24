@@ -4,6 +4,7 @@ one:
   password_digest: <%= BCrypt::Password.create("password") %>
   role: <%= RailsIdentity::Roles::USER %>
   verified: true
+  api_key: <%= SecureRandom.hex(32) %>
   type: "User"
 two:
   uuid: "2"
@@ -11,6 +12,7 @@ two:
   password_digest: <%= BCrypt::Password.create("password") %>
   role: <%= RailsIdentity::Roles::USER %>
   verified: true
+  api_key: <%= SecureRandom.hex(32) %>
   type: "User"
 admin_one:
   uuid: "admin1"
@@ -18,4 +20,5 @@ admin_one:
   password_digest: <%= BCrypt::Password.create("password") %>
   role: <%= RailsIdentity::Roles::ADMIN %>
   verified: true
+  api_key: <%= SecureRandom.hex(32) %>
   type: "User"

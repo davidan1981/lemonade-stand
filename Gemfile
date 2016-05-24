@@ -34,10 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'delayed_job_active_record'
 gem 'daemons'
-# gem 'repia', '~> 0.0.2'
-gem 'repia', path: '/Users/davidan/Projects/Personal/repia'
-gem 'rails-identity', '~> 0.2.3'
-# gem 'rails-identity', path: "/Users/davidan/Projects/Personal/rails-identity"
+gem 'repia', '~> 0.1.1'
+gem 'rails-identity', '~> 0.3.3'
 
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

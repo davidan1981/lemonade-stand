@@ -1,6 +1,9 @@
 require "rails_identity"
 
 Rails.application.routes.draw do
+
+  get "/app", to: redirect("/index.html")
+
   resources :products, shallow: true do
     resources :product_images
     match '(products/:product_id/)product_images(/:id)' => 'product_images#options', via: [:options]
