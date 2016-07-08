@@ -41,5 +41,8 @@ module LemonadeStand
       enable_starttls_auto: true  
     }
     config.action_mailer.raise_delivery_errors = true
+
+    # Use memory store by default.
+    config.cache_store = :memory_store, { size: 64.megabytes }
   end
 end
